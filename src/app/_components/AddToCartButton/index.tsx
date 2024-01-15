@@ -14,8 +14,9 @@ export const AddToCartButton: React.FC<{
   quantity?: number
   className?: string
   appearance?: Props['appearance']
+  slug: string
 }> = props => {
-  const { product, quantity = 1, className, appearance = 'primary' } = props
+  const { product, quantity = 1, className, appearance = 'primary', slug } = props
 
   const { cart, addItemToCart, isProductInCart, hasInitializedCart } = useCart()
 
@@ -45,11 +46,11 @@ export const AddToCartButton: React.FC<{
         !isInCart
           ? () => {
               addItemToCart({
-                product,
+                product: { ...product, slug: product?.slug || slug },
                 quantity,
               })
 
-              router.push('/cart')
+              // router.push('/cart')
             }
           : undefined
       }

@@ -12,6 +12,10 @@
   > * {
     text-decoration: none;
   }
+  @include small-break {
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .hide {

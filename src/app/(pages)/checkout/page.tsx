@@ -29,36 +29,8 @@ export default async function Checkout() {
   }
 
   return (
-    <Fragment>
-      {!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY && (
-        <Gutter>
-          <Message
-            className={classes.message}
-            warning={
-              <Fragment>
-                {'To enable checkout, you must '}
-                <a
-                  href="https://dashboard.stripe.com/test/apikeys"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {'obtain your Stripe API Keys'}
-                </a>
-                {' then set them as environment variables. See the '}
-                <a
-                  href="https://github.com/payloadcms/payload/blob/main/templates/ecommerce/README.md#stripe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {'README'}
-                </a>
-                {' for more details.'}
-              </Fragment>
-            }
-          />
-        </Gutter>
-      )}
-      <LowImpactHero
+    <div className={classes.checkout}>
+      {/* <LowImpactHero
         type="lowImpact"
         media={null}
         richText={[
@@ -98,11 +70,11 @@ export default async function Checkout() {
             ],
           },
         ]}
-      />
-      <Gutter className={classes.checkoutPage}>
+      /> */}
+      <Gutter>
         <CheckoutPage settings={settings} />
       </Gutter>
-    </Fragment>
+    </div>
   )
 }
 

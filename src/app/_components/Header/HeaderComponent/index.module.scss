@@ -1,0 +1,25 @@
+@use '../../../_css/queries.scss' as *;
+
+.header{
+  padding: 36px 0 ;
+}
+
+.wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: calc(var(--base) / 2) var(--base);
+
+  @include small-break {
+    justify-content: center;
+  }
+}
+
+.logo{
+  width: 170px;
+}
+
+.hide{
+  display: none;
+}
