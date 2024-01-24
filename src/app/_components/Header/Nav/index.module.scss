@@ -15,10 +15,79 @@
   @include small-break {
     justify-content: center;
     align-items: center;
+    position: relative;
+
+    & .logBtn{
+      padding: 10px 5px;
+    }
+  }
+}
+
+.navItems{
+  display: flex;
+  gap: calc(var(--base) / 4) var(--base);
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 1;
+  transition: opacity 100ms linear;
+  visibility: visible;
+  @include small-break{
+    display: none;
   }
 }
 
 .hide {
   opacity: 0;
   visibility: hidden;
+}
+
+// .hamburger  {
+
+// span{
+//   display: block;
+//   width: 35px;
+//   height: 3px;
+//   margin: 6px auto;
+//   background-color: #333;
+//   transition: all 0.3s ease-in-out;
+// }
+
+//   &.active span {
+//     &:nth-child(1) {
+//       transform: rotate(-45deg) translate(-9px, 6px);
+//     }
+
+//     &:nth-child(2) {
+//       opacity: 0;
+//     }
+
+//     &:nth-child(3) {
+//       transform: rotate(45deg) translate(-8px, -8px);
+//     }
+//   }
+//   // @include small-break{
+//   //   display: block;
+//   // }
+// }
+
+
+.menu{
+  display: none;
+  filter: invert(1);
+  @include small-break{
+    display: block;
+  }
+}
+
+.close{
+  display: none;
+  z-index: 99;
+padding: 10px;
+background-color: white;
+filter:contrast(.5);
+border-radius: 50%;
+
+  @include small-break{
+    display: block;
+  }
 }

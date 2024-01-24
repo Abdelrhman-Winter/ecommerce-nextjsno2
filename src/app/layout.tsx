@@ -24,6 +24,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <InitTheme />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <style>
+          {`
+            html, body {
+              overflow-x: hidden;
+            }
+          `}
+        </style>
       </head>
       <body className={jost.variable}>
         <Providers>

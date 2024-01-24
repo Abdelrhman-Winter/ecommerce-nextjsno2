@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Category } from '../../../../payload/payload-types'
 import { Checkbox } from '../../../_components/Checkbox'
@@ -11,7 +11,8 @@ import { useFilter } from '../../../_providers/Filter'
 import classes from './index.module.scss'
 
 const Filters = ({ categories }: { categories: Category[] }) => {
-  const { categoryFilters, sort, setCategoryFilters, setSort } = useFilter()
+  const { categoryFilters, sort, setCategoryFilters, setSort, searchterm, setSearchterm } =
+    useFilter()
 
   const handleCategories = (categoryId: string) => {
     if (categoryFilters.includes(categoryId)) {

@@ -2,8 +2,22 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .quantity {
-  margin-left: 2px;
+  position: absolute;
+  background-color: red;
+  color: white;
+  font-weight: 800;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 15px;
+  left: 20px;
 }

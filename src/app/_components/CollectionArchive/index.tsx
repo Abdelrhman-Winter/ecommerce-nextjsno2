@@ -36,7 +36,7 @@ export type Props = {
 }
 
 export const CollectionArchive: React.FC<Props> = props => {
-  const { categoryFilters, sort } = useFilter()
+  const { categoryFilters, sort, searchterm } = useFilter()
 
   const {
     className,
@@ -104,6 +104,7 @@ export const CollectionArchive: React.FC<Props> = props => {
                 },
               }
             : {}),
+          title: { contains: searchterm, mode: 'insensitive' }, // Modified line
         },
         limit,
         page,
@@ -111,6 +112,8 @@ export const CollectionArchive: React.FC<Props> = props => {
       },
       { encode: false },
     )
+
+    console.log('searchQuery', searchQuery)
 
     const makeRequest = async () => {
       try {
@@ -142,7 +145,7 @@ export const CollectionArchive: React.FC<Props> = props => {
     return () => {
       if (timer) clearTimeout(timer)
     }
-  }, [page, categoryFilters, relationTo, onResultChange, sort, limit])
+  }, [page, categoryFilters, relationTo, onResultChange, sort, limit, searchterm])
 
   return (
     <div className={[classes.collectionArchive, className].filter(Boolean).join(' ')}>

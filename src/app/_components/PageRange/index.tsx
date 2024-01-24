@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { useFilter } from '../../_providers/Filter'
+
 import classes from './index.module.scss'
 
 const defaultLabels = {
@@ -40,10 +42,21 @@ export const PageRange: React.FC<{
 
   const { singular, plural } =
     collectionLabelsFromProps || defaultCollectionLabels[collection || ''] || defaultLabels || {}
+  const { searchterm, setSearchterm } = useFilter()
 
+  const handleResetSearchTerm = () => {
+    setSearchterm('')
+  }
   return (
     <div className={[className, classes.pageRange].filter(Boolean).join(' ')}>
-      {(typeof totalDocs === 'undefined' || totalDocs === 0) && 'Search produced no results.'}
+      {(typeof totalDocs === 'undefined' || totalDocs === 0) && (
+        <>
+          {`Search produced ("${searchterm}") no results.`}
+          <button className={classes.back} onClick={handleResetSearchTerm}>
+            All products?
+          </button>
+        </>
+      )}
       {typeof totalDocs !== 'undefined' &&
         totalDocs > 0 &&
         `Showing ${indexStart} - ${indexEnd} of ${totalDocs} ${totalDocs > 1 ? plural : singular}`}
